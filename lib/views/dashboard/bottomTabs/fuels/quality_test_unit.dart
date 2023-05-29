@@ -100,7 +100,7 @@ class _QualityTestUnitState extends State<QualityTestUnit> {
                           ),
                         ),
                       ),
-                      SizedBox(
+                     const SizedBox(
                         width: 6,
                       ),
                       Container(
@@ -119,8 +119,7 @@ class _QualityTestUnitState extends State<QualityTestUnit> {
                     ],
                   )
                 ],
-              ),
-              SizedBox(
+              ), const SizedBox(
                 height: 20,
               ),
 
@@ -235,7 +234,7 @@ Widget showFilterBottomView(context) {
             Container(
               width: MediaQuery.of(context).size.width * 0.5,
               height: MediaQuery.of(context).size.width * 0.11,
-              decoration: BoxDecoration(
+              decoration:  const BoxDecoration(
                 color: Color(0xFFECEFF1),
                 borderRadius: BorderRadius.all(Radius.circular(4)),
               ),
