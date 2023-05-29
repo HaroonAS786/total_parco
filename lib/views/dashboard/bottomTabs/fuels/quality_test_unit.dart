@@ -119,7 +119,7 @@ class _QualityTestUnitState extends State<QualityTestUnit> {
                     ],
                   )
                 ],
-              ), SizedBox(
+              ), const SizedBox(
                 height: 20,
               ),
 
