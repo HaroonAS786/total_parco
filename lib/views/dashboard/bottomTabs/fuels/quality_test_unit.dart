@@ -100,7 +100,7 @@ class _QualityTestUnitState extends State<QualityTestUnit> {
                           ),
                         ),
                       ),
-                      SizedBox(
+                     const SizedBox(
                         width: 6,
                       ),
                       Container(
@@ -120,7 +120,7 @@ class _QualityTestUnitState extends State<QualityTestUnit> {
                   )
                 ],
               ),
-              SizedBox(
+             const SizedBox(
                 height: 20,
               ),
 
