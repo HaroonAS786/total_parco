@@ -1,39 +1,64 @@
 import 'package:flutter/material.dart';
 
-class OpenDropDown extends StatefulWidget {
+class ShowDropDown extends StatefulWidget {
   dynamic onPress;
-  bool isDropDownOpen = false;
+  dynamic itemOnPress;
+  bool isDropDownOpen;
+  String dropDownLabel;
+  String placeholder;
+  dynamic list;
 
-  OpenDropDown({Key? key, required this.onPress, required this.isDropDownOpen})
+  ShowDropDown(
+      {Key? key,
+      required this.onPress,
+      required this.isDropDownOpen,
+      required this.dropDownLabel,
+      required this.list,
+      required this.itemOnPress,
+      required this.placeholder,
+      })
       : super(key: key);
 
   @override
-  State<OpenDropDown> createState() => _OpenDropDownState();
+  State<ShowDropDown> createState() => _ShowDropDownState();
 }
 
-class _OpenDropDownState extends State<OpenDropDown> {
+class _ShowDropDownState extends State<ShowDropDown> {
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
+        Row(children: [
+          Text(widget.dropDownLabel),
+        ]),
+        SizedBox(height: MediaQuery.of(context).size.height * 0.005),
         Container(
           height: MediaQuery.of(context).size.height * 0.05,
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(4),
+            borderRadius: widget.isDropDownOpen
+                ? BorderRadius.only(
+                    topLeft: Radius.circular(4),
+                    topRight: Radius.circular(4),
+                    bottomLeft: Radius.circular(0),
+                    bottomRight: Radius.circular(0),
+                  )
+                : BorderRadius.circular(4),
             border: Border.all(color: Colors.grey),
           ),
           child: InkWell(
-            onTap: (){
-              setState((){
-                widget.onPress();
-              });
-            },
+            onTap: widget.onPress,
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 6),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text('Select'),
+                  Text(
+                    widget.placeholder,
+                    style: TextStyle(
+                      color: Colors.grey,
+                      fontSize: 14,
+                    ),
+                  ),
                   Icon(Icons.keyboard_arrow_down_rounded)
                 ],
               ),
@@ -42,7 +67,7 @@ class _OpenDropDownState extends State<OpenDropDown> {
         ),
         widget.isDropDownOpen
             ? Container(
-                height: MediaQuery.of(context).size.height * 0.5,
+                height: MediaQuery.of(context).size.height * 0.2,
                 decoration: BoxDecoration(
                     border: Border(
                         left: BorderSide(
@@ -61,9 +86,16 @@ class _OpenDropDownState extends State<OpenDropDown> {
                           color: Colors.grey,
                           width: 1,
                         ))),
-                child: ListView.builder(itemBuilder: ((context, index) {
-                  return ListTile(
-                    title: Text('hello'),
+                child: ListView.builder(
+                    itemCount: widget.list.length,
+                    itemBuilder: ((context, index) {
+                  return GestureDetector(
+                    onTap: ()=> widget.itemOnPress(index)
+
+                    ,
+                    child: ListTile(
+                      title: Text(widget.list[index]),
+                    ),
                   );
                 })),
               )
