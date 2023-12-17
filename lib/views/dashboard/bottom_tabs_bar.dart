@@ -34,10 +34,10 @@ class _BottomTabBarState extends State<BottomTabBar> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: widgetList[_selectedIndex],
-        bottomNavigationBar: Container(
+    return  Scaffold(
+      body: widgetList[_selectedIndex],
+      bottomNavigationBar: SafeArea(
+        child: Container(
           height: 75,
           decoration: BoxDecoration(
             color: Colors.white,
@@ -105,7 +105,7 @@ class _BottomTabBarState extends State<BottomTabBar> {
                     page4=true;
                   });
                 },
-                  isSelected:page4,
+                isSelected:page4,
 
               ),
             ],

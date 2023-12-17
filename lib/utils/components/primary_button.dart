@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 class ButtonComponent extends StatelessWidget {
   String title;
   dynamic onPress;
-  ButtonComponent({Key? key, required this.title,required this.onPress}) : super(key: key);
+  bool isLoader;
+  ButtonComponent({Key? key, required this.title,required this.onPress,required this.isLoader}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +16,16 @@ class ButtonComponent extends StatelessWidget {
           primary: Colors.redAccent,
         ),
         onPressed: onPress,
-        child: Text(
+        child: isLoader?
+            Center(
+              child: CircularProgressIndicator(
+                color: Colors.white,
+
+              ),
+            )
+            :Text(
           title,
-          style: const TextStyle(color: Colors.white, fontSize: 16),
+          style:  TextStyle(color: Colors.white, fontSize: 16),
         ),
       ),
     );

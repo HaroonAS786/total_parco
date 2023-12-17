@@ -5,6 +5,7 @@ import 'package:total_parco/views/dashboard/bottomTabs/fuels/pre_departure_inpse
 import 'package:total_parco/views/dashboard/bottomTabs/fuels/quality_complaint.dart';
 import 'package:total_parco/views/dashboard/bottomTabs/fuels/quality_lab.dart';
 import 'package:total_parco/views/dashboard/bottomTabs/fuels/quality_test_unit.dart';
+import 'package:total_parco/views/dashboard/bottomTabs/fuels/quality_test_unit_audit.dart';
 import 'package:total_parco/views/dashboard/bottom_tabs_bar.dart';
 import 'package:total_parco/views/forgot_password.dart';
 import 'package:total_parco/views/login.dart';
@@ -24,16 +25,13 @@ class Routes {
         return MaterialPageRoute(
             builder: (BuildContext context) => const ForgotPasswordScreen());
 
-
       case RoutesName.bottomTabBar:
         return MaterialPageRoute(
             builder: (BuildContext context) => const BottomTabBar());
 
-
       case RoutesName.qualityTestUnit:
         return MaterialPageRoute(
             builder: (BuildContext context) => const QualityTestUnit());
-
 
       case RoutesName.preDepartureInspection:
         return MaterialPageRoute(
@@ -47,10 +45,9 @@ class Routes {
         return MaterialPageRoute(
             builder: (BuildContext context) => const QualityComplaint());
 
-
-
-
-
+      case RoutesName.qualityTestUnitAudit:
+        return MaterialPageRoute(
+            builder: (BuildContext context) => const QualityTestUnitAudit());
 
       default:
         return MaterialPageRoute(builder: (_) {

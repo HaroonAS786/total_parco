@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:io' show Platform;
 
 class ShowDropDown extends StatefulWidget {
   dynamic onPress;
@@ -28,21 +29,37 @@ class _ShowDropDownState extends State<ShowDropDown> {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(children: [
-          Text(widget.dropDownLabel),
-        ]),
+
+        Row(
+          children: [
+            Text(widget.dropDownLabel),
+            const SizedBox(
+              width: 4,
+            ),
+            const Padding(
+                padding: EdgeInsets.fromLTRB(0, 0, 0, 6.0),
+                child: Icon(
+                  Icons.star,
+                  color: Colors.red,
+                  size: 8,
+                ))
+          ],
+        ),
+
+
         SizedBox(height: MediaQuery.of(context).size.height * 0.005),
         Container(
-          height: MediaQuery.of(context).size.height * 0.05,
+          height:MediaQuery.of(context).size.height * 0.052,
+
           decoration: BoxDecoration(
             borderRadius: widget.isDropDownOpen
                 ? BorderRadius.only(
-                    topLeft: Radius.circular(4),
-                    topRight: Radius.circular(4),
+                    topLeft: Radius.circular(8.0),
+                    topRight: Radius.circular(8.0),
                     bottomLeft: Radius.circular(0),
                     bottomRight: Radius.circular(0),
                   )
-                : BorderRadius.circular(4),
+                : BorderRadius.circular(8.0),
             border: Border.all(color: Colors.grey),
           ),
           child: InkWell(

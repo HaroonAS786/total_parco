@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:total_parco/utils/components/bottom_sheet.dart';
 import 'package:total_parco/utils/components/input_3.dart';
 import 'package:total_parco/utils/components/reusable.dart';
+import 'package:total_parco/utils/routes/routes.dart';
 import 'package:total_parco/views/dashboard/bottomTabs/components/card_item.dart';
 import 'package:total_parco/views/dashboard/bottomTabs/components/header.dart';
 
@@ -17,9 +18,9 @@ class _QualityTestUnitState extends State<QualityTestUnit> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Padding(
+    return Scaffold(
+      body: SafeArea(
+        child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 16),
           child: Column(
             children: [
@@ -28,10 +29,13 @@ class _QualityTestUnitState extends State<QualityTestUnit> {
               ),
               Header(
                 title: 'Quality Testing Unit',
-                onPress: null,
+                onPress: () {
+                  Navigator.pushNamed(context, RoutesName.qualityTestUnitAudit);
+                },
                 onBackPress: () {
                   Navigator.pop(context);
                 },
+
               ),
               SizedBox(
                 height: 20,
@@ -87,7 +91,7 @@ class _QualityTestUnitState extends State<QualityTestUnit> {
                           decoration: BoxDecoration(
                               color: Color(0xFFECEFF1),
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(4))),
+                              BorderRadius.all(Radius.circular(4))),
                           child: Center(
                             child: Icon(
                               Icons.filter_alt_outlined,
@@ -137,7 +141,3 @@ class _QualityTestUnitState extends State<QualityTestUnit> {
     );
   }
 }
-
-
-
-

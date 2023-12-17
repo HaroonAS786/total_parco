@@ -22,7 +22,7 @@ class _ProfileState extends State<Profile> {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 25,
                 ),
                 Row(
@@ -121,32 +121,29 @@ class _ProfileState extends State<Profile> {
                   height: 25,
                 ),
                 InkWell(
-                  onTap: (){
+                  onTap: () {
                     Navigator.pushNamed(context, RoutesName.login);
                   },
                   child: Container(
                     width: double.infinity,
                     height: 32,
-                   decoration: BoxDecoration(
-                     color: Color(0xFFECEFF1),
-                     borderRadius: BorderRadius.all(Radius.circular(4))
-                   ),
+                    decoration: BoxDecoration(
+                        color: Color(0xFFECEFF1),
+                        borderRadius: BorderRadius.all(Radius.circular(4))),
                     child: Center(
                       child: Text(
                         'Login',
                         style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 14,
-                          ),
+                          color: Colors.black,
+                          fontSize: 14,
+                        ),
                       ),
                     ),
                   ),
                 ),
-
                 SizedBox(
                   height: 25,
                 ),
-
               ],
             ),
           ),

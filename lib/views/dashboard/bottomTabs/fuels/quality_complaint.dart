@@ -7,9 +7,9 @@ class QualityComplaint extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: Padding(
+    return       Scaffold(
+      body: SafeArea(
+        child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 16),
           child: Column(
             children: [
@@ -18,7 +18,9 @@ class QualityComplaint extends StatelessWidget {
               ),
               Header(title: 'Quality Testing Unit', onPress:null , onBackPress:(){
                 Navigator.pop(context);
-              },),
+              },
+
+              ),
               SizedBox(
                 height: 20,
               ),
